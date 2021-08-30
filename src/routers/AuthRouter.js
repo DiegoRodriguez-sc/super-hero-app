@@ -3,6 +3,8 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import LoginScreen from '../pages/LoginScreen';
 import RegisterScreen from '../pages/RegisterScreen';
 
+import "../styles/login-register.css"
+
 const AuthRouter = () => {
  return (
   <div className="text-center auth">
