@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import logo from "../assets/Hero-App.svg";
+import { useDispatch } from "react-redux";
+import { startLogin } from "../actions/auth";
 
 const validate = (values) => {
   const errors = {};
@@ -13,22 +15,25 @@ const validate = (values) => {
 
   if (!values.password) {
     errors.password = "Required";
-  } else if (values.password.length < 6) {
-    errors.password = "Must be 6 characters or more";
+  } else if (values.password.length < 3) {
+    errors.password = "Must be 3 characters or more";
   }
 
   return errors;
 };
 
 const LoginScreen = () => {
+
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "challenge@alkemy.org",
+      password: "react",
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
+      dispatch(startLogin(values));
     },
   });
 

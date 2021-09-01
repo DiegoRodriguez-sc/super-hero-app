@@ -1,9 +1,15 @@
 import React from 'react';
+import HomeHeroTeam from '../components/HomeHeroTeam';
+import HomeStats from '../components/HomeStats';
+
+
+
 
 const HomeScreen = () => {
  return (
   <div>
-  <h1>home page</h1>
+   <HomeStats />
+   <HomeHeroTeam />
   </div>
  );
 }
