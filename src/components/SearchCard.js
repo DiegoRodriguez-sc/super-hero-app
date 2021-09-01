@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchCard = ({hero}) => {
 
-  const {name, image} = hero;
+  const {name, image, id} = hero;
 
  return (
   <div className="card mb-3" style={{maxWidth:"300px"}}>
@@ -13,7 +14,7 @@ const SearchCard = ({hero}) => {
       <div className="col-md-6">
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <button className="btn btn-primary m-1">more</button>
+          <Link className="btn btn-primary" to={ `./hero/${ id }` }>more</Link>
           <button className="btn btn-primary m-1">added</button>
         </div>
       </div>
