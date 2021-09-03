@@ -6,6 +6,7 @@ import {
  Switch,
 } from "react-router-dom";
 import { renewLogin } from '../actions/auth';
+import { renewHero } from '../actions/heros';
 import AuthRouter from './AuthRouter';
 import DashBoardRoute from './DashBoardRoute';
 import { PrivateRoute } from './PrivateRoute';
@@ -19,6 +20,7 @@ const AppRouter = () => {
 
   useEffect(() => {
     dispatch(renewLogin());
+    dispatch(renewHero());
   }, [dispatch]);
 
 
