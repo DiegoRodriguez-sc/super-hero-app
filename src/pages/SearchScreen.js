@@ -3,17 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { useFormik } from "formik";
 import axios from 'axios';
 import queryString from "query-string";
-import SearchCard from '../components/SearchCard';
 import { useEffect } from 'react';
+import HeroCard from '../components/HeroCard';
 
-
-// const validate = (values) => {
-//   const errors = {};
-//   if (!values.search) {
-//     errors.search = "Required";
-//   }
-//   return errors;
-// };
 
 const SearchScreen = ({history}) => {
 
@@ -21,6 +13,7 @@ const SearchScreen = ({history}) => {
   const { q = "" } = queryString.parse( location.search );
   
   const [heros, setHeros] = useState([]);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
@@ -36,16 +29,15 @@ const SearchScreen = ({history}) => {
     if(q === ""){
       setHeros([]);
     }else{
-      setLoading(false);
-      axios.get(`https://www.superheroapi.com/api.php/4205666286179774/search/${q}`)
-      .then(response => {
-        setHeros(response.data.results);
+      setLoading(true);
+      const fetchHeroes = async () => {
+        let response = await axios.get(`https://www.superheroapi.com/api.php/4205666286179774/search/${q}`);
+        response.data.response === "success"
+          ? setHeros(response.data.results)
+          : setError(response.data.error);
         setLoading(false);
-      })
-      .catch(error => {
-        console.log(error);
-        setLoading(false);
-      });
+      };
+      fetchHeroes();
     }
   }, [q])
 
@@ -75,8 +67,9 @@ const SearchScreen = ({history}) => {
     <div className="d-flex flex-wrap" >
      {
        loading 
-       ? <div>cargando..</div>
-       : heros.map(hero => <SearchCard key={hero.id} hero={hero} />)
+       ? <div> cargando..</div>
+       : heros ? heros.map(hero => <HeroCard key={hero.id} hero={hero} />)
+               : <div>{error}</div> 
      }
     </div>
    </div>

@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import { startLogin } from "../actions/auth";
@@ -78,9 +77,6 @@ const LoginScreen = () => {
       <button className="w-100 btn btn-lg btn-primary" type="submit">
         Sign in
       </button>
-      <Link className="btn btn-link text-black" to="/auth/register">
-        Create Account
-      </Link>
     </form>
   );
 };

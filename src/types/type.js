@@ -10,9 +10,8 @@ export const type ={
  uiFinishLoading:"[Ui] Finish loading",
 
 
- herosAddGood:"[heros] Add good hero",
- herosAddBad:"[heros] Add bad hero",
- heroDelete:"[heros] delete",
+ herosAdd:"[heros] Add hero",
+ heroDelete:"[heros] delete hero",
 
 
 }
