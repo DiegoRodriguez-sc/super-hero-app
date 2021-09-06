@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { startLogout } from "../actions/auth";
+import img from "../assets/Hero-App.svg"
 
 const NavBar = () => {
 
@@ -15,6 +16,7 @@ const NavBar = () => {
     <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
+          <img src={img} width="30" height="24" className="d-inline-block align-text-top" alt="logo home" />
           Hero-Team
         </NavLink>
         <button

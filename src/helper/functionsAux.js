@@ -28,27 +28,6 @@ export const strongestStat = (team) => {
   const max = Math.max(...arrPower);
 
   return arrPower.indexOf(max);
-
-  // const getKeyByValue = (object, value) => {
-  //   return Object.keys(object).find((key) => object[key] === value);
-  // };
-
-  // let arrStats = [];
-  // if (team.length > 0) {
-  //   team.forEach((h) => {
-  //     let powerstats = Object.values(h.powerstats);
-  //     let maxStat = Math.max(...powerstats).toString();
-  //     let stat = getKeyByValue(h.powerstats, maxStat);
-  //     arrStats.push(stat)
-  //   });
-  // };
-
-  // return Object.entries(
-  //   arrStats.reduce((acc, v) => {
-  //     acc[v] = acc[v] ? acc[v] + 1 : 1;
-  //     return acc;
-  //   }, {})
-  // ).reduce((acc, v) => (v[1] >= acc[1] ? v : acc), [null, 0])[0];
 };
 
 export const powerStats = (team) => {

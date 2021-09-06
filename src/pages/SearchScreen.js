@@ -39,10 +39,7 @@ const SearchScreen = ({history}) => {
       };
       fetchHeroes();
     }
-  }, [q])
-
-  console.log(error);
-  console.log(heros);
+  }, [q]);
 
  return (
   <div className="row w-auto m-2">
@@ -72,7 +69,7 @@ const SearchScreen = ({history}) => {
        loading 
        ? <div className="spinner-grow text-light" role="status">
           <span className="visually-hidden">Loading...</span>
-        </div>
+         </div>
        : heros.length > 0 ? heros.map(hero => <HeroCard key={hero.id} hero={hero} />)
                : <div className="alert alert-info w-100 " role="alert">{error ? error : `Look for a Hero!`}</div> 
      }

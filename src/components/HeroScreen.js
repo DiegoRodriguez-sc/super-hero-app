@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { Fragment, useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams} from "react-router-dom";
 
 const HeroScreen = ({ history }) => {
   const { heroId } = useParams();
-  console.log(heroId);
   const [hero, setHero] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -24,25 +23,26 @@ const HeroScreen = ({ history }) => {
     fetchHeroDetails();
   }, [heroId]);
 
-  // if ( !hero ) {
-  //     return <Redirect to="/" />;
-  // }
+  const handleReturn = () => {
 
-  // const handleReturn = () => {
+      if( history.length <=2 ) {
+          history.push('/');
+      } else {
+          history.goBack();
+      }
 
-  //     if( history.length <=2 ) {
-  //         history.push('/');
-  //     } else {
-  //         history.goBack();
-  //     }
-
-  // }
+  }
   return (
     <Fragment>
-    <button className="btn btn-primary m-2">back</button>
-    <div className="m-2 p-2 text-light">
+    <button 
+     className="card btn btn-dark m-2"
+    onClick={handleReturn}
+     >back</button>
+    <div className="m-2 p-2 text-light d-flex justify-content-center">
       {loading ? (
-        <div>cargando..</div>
+        <div className="spinner-grow text-light " role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
       ) : error ? (
         <div>oops, there seems to be an error {error}</div>
       ) : (
@@ -58,7 +58,7 @@ const HeroScreen = ({ history }) => {
             <div className="col-md-6">
               <div className="card-body d-flex flex-column justify-content-between h-100">
                 <h1 className="card-title fw-bold">{hero.name}</h1>
-                <h4 className="card-title">{hero.biography.aliases}</h4>
+                <h4 className="card-title">{hero.biography.aliases.map(aliase => `${aliase} | `)}</h4>
                 <hr />
                 <div className="mt-2 h4">
                   <div className="row text-center">

@@ -10,18 +10,16 @@ const HomeStats = () => {
  const {team} = useSelector(state => state.heros);
  
  const stat = powerStats(team);
- const names = ["intelligence", "strength", "speed", "durability", "power", "combat"];
- const colors = ["#003D59","#414A4F","#FB9334","#FE6625","#44857D","#167070"];
+ const names = ["Intelligence", "Strength", "Speed", "Durability", "Power", "Combat"];
+ const colors = ["#00C1D4","#F8485E","#FB9334","#0F52BA","#512D6D","#EEEEEE"];
  const {data,opcions} = pieChart(names,stat,colors);
- const colorStronge = colors[names[(strongestStat(team))]];
-
- console.log(stat);
+ const colorStronge = colors[strongestStat(team)];
 
  return (
   <div className="card text-light mb-3 m-3 p-2 stats">
    <div className="row text-center align-items-center">
     <div className="col-md-6">
-     <p><span className="h1">Strong Stat: </span><span style={{color:colorStronge}}>{names[strongestStat(team)]}</span></p>
+     <p><span className="h1">Strong Stat: </span><span style={team.length > 0 ? {color:colorStronge} :{color:"white"}}>{team.length > 0 ?names[strongestStat(team)] : 0}</span></p>
      <p><span className="h1">Average Weight: </span>{`${averageWeight(team)} kg`}</p>
      <p><span className="h1">Average Height: </span>{`${averageHeight(team)} cm`}</p>
     </div>

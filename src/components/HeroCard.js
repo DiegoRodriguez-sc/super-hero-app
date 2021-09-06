@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { deleteHero, setNewHero } from "../actions/heros";
 import "../styles/card.css";
 
-// import { startDeleteHero, startSetStats } from "../actions/heros";
 
 const HeroCard = ({ hero }) => {
 
@@ -84,7 +83,7 @@ const HeroCard = ({ hero }) => {
             </div>
             <div className="card-footer">
               {error ? (
-                <div className="">{error}</div>
+                <div className="form-text text-danger">{error}</div>
               ) : (
                 <div className="btns">
                   <Link to={`/hero/${id}`}>
