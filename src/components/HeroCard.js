@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
 import { deleteHero, setNewHero } from "../actions/heros";
+import "../styles/card.css";
 
 // import { startDeleteHero, startSetStats } from "../actions/heros";
 
@@ -15,11 +16,15 @@ const HeroCard = ({ hero }) => {
   const [error, setError] = useState("");
 
   const {powerstats, name, image, id } = hero;
-  const { intelligence, strength, speed, durability, power, combat } =
-    powerstats;
-  
-  const statsArr = [intelligence, strength, speed, durability, power, combat];
-  
+  const {
+    intelligence,
+    strength,
+    speed,
+    durability,
+    power,
+    combat,
+  } = powerstats;
+
   const onSetNewMember = (hero) => {
     const countAlignment = (alignment) => {
       return team.reduce(
@@ -48,31 +53,47 @@ const HeroCard = ({ hero }) => {
   };
   return (
     <div>
-      <div className="card mb-3" style={{ maxWidth: "540px" }}>
+      <div className="card mb-3 m-2 bg-dark text-light" style={pathname === "/search" ?{ maxWidth: "300px" } :{maxWidth:"500px"}}>
         <div className="row g-0">
-          <div className="col-md-4">
+          <div className="col-md-6">
             <img
               src={image.url}
               className="img-fluid rounded-start"
               alt={name}
             />
           </div>
-          <div className="col-md-8">
+          <div className="col-md-6 cardstat">
             <div className="card-body">
-              <h5 className="card-title">{name}</h5>
-              <div className="row"></div>
+              <h4 className="card-title">{name}</h4>
+              { pathname !== "/search" && (<div className="row align-items-center h-100">
+                <div className="col-6">
+                  <ul>
+                    <li>Intelligence: {intelligence}</li>
+                    <li>Strength: {strength}</li>
+                    <li>Speed: {speed}</li>
+                  </ul>
+                </div>
+                <div className="col-6">
+                  <ul>
+                    <li>Durability: {durability}</li>
+                    <li>Power: {power}</li>
+                    <li>Combat: {combat}</li>
+                  </ul>
+                </div>
+              </div>)}
             </div>
             <div className="card-footer">
               {error ? (
                 <div className="">{error}</div>
               ) : (
-                <div className="">
+                <div className="btns">
                   <Link to={`/hero/${id}`}>
-                    <button>Details</button>
+                    <button className="btn btn-outline-light">Details</button>
                   </Link>
 
                   {pathname !== "/search" ? (
                     <button
+                      className="btn btn-outline-danger"
                       onClick={(e) => {
                         e.preventDefault();
                         dispatch(deleteHero(id));
@@ -82,12 +103,13 @@ const HeroCard = ({ hero }) => {
                     </button>
                   ) : (
                     <button
+                      className="btn btn-outline-light"
                       onClick={(e) => {
                         e.preventDefault();
                         onSetNewMember(hero);
                       }}
                     >
-                      Add hero
+                      Add
                     </button>
                   )}
                 </div>

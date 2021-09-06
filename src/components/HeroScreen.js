@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -38,26 +38,29 @@ const HeroScreen = ({ history }) => {
 
   // }
   return (
-    <div className="m-2 p-2">
+    <Fragment>
+    <button className="btn btn-primary m-2">back</button>
+    <div className="m-2 p-2 text-light">
       {loading ? (
         <div>cargando..</div>
       ) : error ? (
         <div>oops, there seems to be an error {error}</div>
       ) : (
-        <div className="card mb-3" style={{ maxWidth: "100%" }}>
+        <div className="card m-4">
           <div className="row g-0">
-            <div className="col-md-4">
+            <div className="col-md-6">
               <img
                 src={hero.image.url}
                 className="img-fluid rounded-start"
                 alt={hero.name}
               />
             </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h3 className="card-title">{hero.name}</h3>
-                <h5 className="card-title">{hero.biography.aliases}</h5>
-                <div className="mt-2">
+            <div className="col-md-6">
+              <div className="card-body d-flex flex-column justify-content-between h-100">
+                <h1 className="card-title fw-bold">{hero.name}</h1>
+                <h4 className="card-title">{hero.biography.aliases}</h4>
+                <hr />
+                <div className="mt-2 h4">
                   <div className="row text-center">
                     <div className="col">
                       <p className="card-text">
@@ -83,27 +86,30 @@ const HeroScreen = ({ history }) => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-2">
+                <hr />
+                <div className="mt-2 h4">
                   <div className="d-flex justify-content-around">
                     <p className="card-text">
-                      Weight: {hero.appearance.weight.map((wei) => ` ${wei}. `)}
+                      Weight: {hero.appearance.weight[1]}
                     </p>
                     <p className="card-text">
-                      Height: {hero.appearance.height.map((hei) => ` ${hei}. `)}
+                      Height: {hero.appearance.height[1]}
                     </p>
                   </div>
                 </div>
-                <div className="mt-2">
+                <hr />
+                <div className="mt-2 h4">
                   <div className="d-flex justify-content-around">
                     <p className="card-text">
-                      Eye Color: {hero.appearance["eye-color"]}
+                      Eye Color: <span style={{color:hero.appearance["eye-color"]}}>{hero.appearance["eye-color"]}</span>
                     </p>
                     <p className="card-text">
-                      Hair Color: {hero.appearance["hair-color"]}
+                      Hair Color: <span style={{color:hero.appearance["hair-color"]}}>{hero.appearance["hair-color"]}</span>
                     </p>
                   </div>
                 </div>
-                <div className="mt-2">
+                <hr />
+                <div className="mt-2 h4">
                   <div>
                     <p className="card-text">Work: {hero.work.occupation}</p>
                   </div>
@@ -114,6 +120,8 @@ const HeroScreen = ({ history }) => {
         </div>
       )}
     </div>
+    
+    </Fragment>
   );
 };
 

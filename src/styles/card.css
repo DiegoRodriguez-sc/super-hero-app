@@ -1,0 +1,26 @@
+
+.card{
+
+ border-radius: 12px;
+ background: #212529;
+ box-shadow:  5px 5px 4px #131517,
+              -5px -5px 4px #2f353b;
+ 
+}
+.cardstat{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* @media screen and (max-width: 767px) {
+ .card-footer{
+   position: relative !important;
+ }
+} */

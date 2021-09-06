@@ -12,7 +12,7 @@ const NavBar = () => {
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           Hero-Team
@@ -38,7 +38,7 @@ const NavBar = () => {
           </ul>
           <div className="d-flex">
             <div className="nav-item dropdown">
-              <p className="nav-link dropdown-toggle text-success" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <p className="nav-link dropdown-toggle text-primary" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 user
               </p>
               <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
@@ -25,6 +25,7 @@ const validate = (values) => {
 const LoginScreen = () => {
 
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -33,19 +34,21 @@ const LoginScreen = () => {
     },
     validate,
     onSubmit: (values) => {
+      setLoading(true);
       dispatch(startLogin(values));
+      setLoading(false);
     },
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className="text-light">
       <img src={logo} alt="asd" style={{width:"15rem"}} />
       <h1 className="h3 mb-3 fw-normal">Super Login</h1>
 
       <div className="form-floating">
         <input
           type="email"
-          className="form-control"
+          className="form-control bg-dark text-light"
           id="floatingInput"
           name="email"
           placeholder="name@example.com"
@@ -62,7 +65,7 @@ const LoginScreen = () => {
       <div className="form-floating">
         <input
           type="password"
-          className="form-control"
+          className="form-control bg-dark text-light"
           id="floatingPassword"
           name="password"
           placeholder="Password"
@@ -74,7 +77,11 @@ const LoginScreen = () => {
           <div className="form-text text-danger ">{formik.errors.password}</div>
         ) : null}
       </div>
-      <button className="w-100 btn btn-lg btn-primary" type="submit">
+      <button 
+       className="w-100 btn btn-lg btn-warning"
+       type="submit"
+       disabled={loading}
+       >
         Sign in
       </button>
     </form>

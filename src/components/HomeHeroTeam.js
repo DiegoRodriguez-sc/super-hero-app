@@ -7,7 +7,7 @@ const HomeHeroTeam = () => {
   const {team} = useSelector(state => state.heros);
 
  return (
-  <div className="m-2 p-1 d-flex flex-wrap">
+  <div className="m-2 p-1 d-flex flex-wrap justify-content-center">
     { 
      team.length > 0 
      ? team.map(hero => <HeroCard key={hero.id} hero={hero}/>)

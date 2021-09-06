@@ -1,9 +1,10 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { type } from "../types/type";
 
 
 export const startLogin = (data) =>{
- return async(dispatch) =>{
+ return (dispatch) =>{
   axios.post('http://challenge-react.alkemy.org/', data)
     .then(response => {
       const {token} = response.data;
@@ -12,6 +13,11 @@ export const startLogin = (data) =>{
     })
     .catch(error => {
       console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Password or user is incorrect',
+      })
       dispatch(finishChecking());
       dispatch(logout());
     });
