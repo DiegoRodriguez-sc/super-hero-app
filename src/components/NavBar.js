@@ -39,14 +39,7 @@ const NavBar = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <div className="nav-item dropdown">
-              <p className="nav-link dropdown-toggle text-primary" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                user
-              </p>
-              <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><button className="dropdown-item" onClick={handleLogin} >logout</button></li>
-              </ul>
-            </div>
+            <button className="btn btn-outline-danger" onClick={handleLogin}>Logout</button>
           </div>
         </div>
       </div>

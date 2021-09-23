@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import { deleteHero, setNewHero } from "../actions/heros";
 import "../styles/card.css";
+import "animate.css";
 
 
 const HeroCard = ({ hero }) => {
@@ -52,7 +53,7 @@ const HeroCard = ({ hero }) => {
   };
   return (
     <div>
-      <div className="card mb-3 m-2 bg-dark text-light" style={pathname === "/search" ?{ maxWidth: "300px" } :{maxWidth:"500px"}}>
+      <div className="card mb-3 m-2 bg-dark text-light animate__animated animate__fadeInUp animate__slow" style={pathname === "/search" ?{ maxWidth: "300px" } :{maxWidth:"500px"}}>
         <div className="row g-0">
           <div className="col-md-6">
             <img
@@ -122,56 +123,3 @@ const HeroCard = ({ hero }) => {
 };
 
 export default HeroCard;
-
-// <div className={styles.containerCard}>
-// <div className={styles.card}>
-//   <div className={styles.front}>
-//     <img src={image.url} />
-//     <div className={styles.frontName}>{name}</div>
-//   </div>
-//   <div className={styles.back}>
-//     <h6>Powerstats avg: {averageStats(...statsArr)}</h6>
-//     <Chart
-//       options={optionsCard}
-//       series={[
-//         {
-//           name: "Score",
-//           data: statsArr,
-//         },
-//       ]}
-//       type="radar"
-//       width="350"
-//       height="310"
-//     />
-//     {error ? (
-//       <div className={styles.error}>{error}</div>
-//     ) : (
-//       <div className={styles.buttons}>
-//         <Link to={`/hero/${id}`}>
-//           <button>Details</button>
-//         </Link>
-
-//         {pathname !== "/search" ? (
-//           <button
-//             onClick={(e) => {
-//               e.preventDefault();
-//               dispatch(removeTeamMember(id));
-//             }}
-//           >
-//             Remove
-//           </button>
-//         ) : (
-//           <button
-//             onClick={(e) => {
-//               e.preventDefault();
-//               onSetNewMember(hero);
-//             }}
-//           >
-//             Add hero
-//           </button>
-//         )}
-//       </div>
-//     )}
-//   </div>
-// </div>
-// </div>

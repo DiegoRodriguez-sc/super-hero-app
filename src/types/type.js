@@ -12,6 +12,4 @@ export const type ={
 
  herosAdd:"[heros] Add hero",
  heroDelete:"[heros] delete hero",
-
-
 }

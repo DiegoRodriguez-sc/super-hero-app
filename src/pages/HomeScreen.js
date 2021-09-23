@@ -7,7 +7,7 @@ import HomeStats from '../components/HomeStats';
 
 const HomeScreen = () => {
  return (
-  <div>
+  <div className="home">
    <HomeStats />
    <HomeHeroTeam />
   </div>

@@ -8,11 +8,10 @@ import "../styles/stats.css";
 const HomeStats = () => {
 
  const {team} = useSelector(state => state.heros);
- 
  const stat = powerStats(team);
  const names = ["Intelligence", "Strength", "Speed", "Durability", "Power", "Combat"];
  const colors = ["#00C1D4","#F8485E","#FB9334","#0F52BA","#512D6D","#EEEEEE"];
- const {data,opcions} = pieChart(names,stat,colors);
+ const {data, opcions} = pieChart(names,stat,colors);
  const colorStronge = colors[strongestStat(team)];
 
  return (

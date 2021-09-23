@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+
 import { useLocation } from 'react-router-dom';
 import { useFormik } from "formik";
+import { useEffect } from 'react';
+
 import axios from 'axios';
 import queryString from "query-string";
-import { useEffect } from 'react';
-import HeroCard from '../components/HeroCard';
 
+import HeroCard from '../components/HeroCard';
 
 const SearchScreen = ({history}) => {
 

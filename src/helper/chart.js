@@ -1,6 +1,7 @@
 
-export const pieChart =(names,dat,colors) =>{
+export const pieChart =(names,dat ,colors) =>{
 
+  
   const data ={
      labels:names,
      datasets:[{
