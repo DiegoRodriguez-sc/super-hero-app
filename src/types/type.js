@@ -6,10 +6,6 @@ export const type ={
  authFinishChecking:"[Auth] Finish checking",
  logout:"[Auth] Logout",
 
- uiStartLoading: "[Ui] Start loading",
- uiFinishLoading:"[Ui] Finish loading",
-
-
  herosAdd:"[heros] Add hero",
  heroDelete:"[heros] delete hero",
 }
