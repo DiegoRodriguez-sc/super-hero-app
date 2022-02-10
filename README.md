@@ -3,6 +3,8 @@
 Aplicación para crear un equipo de superhéroes que consumirá una API externa y
 mostrará diferentes atributos a nivel individual de cada miembro y del equipo consolidado.
 
+Demo en vivo: [SuperHero-App](https://superh-app.netlify.app/)
+
 Challenge: [Alkemy Challenge React](https://drive.google.com/file/u/0/d/1kNbni3fBBYiAErWYIQNmlggJTNHmLgPL/view)
 
 Alkemy : [Sitio Web](https://www.alkemy.org/)
