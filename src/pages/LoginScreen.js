@@ -30,7 +30,7 @@ const LoginScreen = () => {
   const formik = useFormik({
     initialValues: {
       email: "challenge@alkemy.org",
-      password: "react",
+      password: "react0",
     },
     validate,
     onSubmit: (values) => {

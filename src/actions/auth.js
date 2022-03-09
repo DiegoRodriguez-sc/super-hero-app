@@ -5,9 +5,9 @@ import { type } from "../types/type";
 
 export const startLogin = (data) =>{
  return (dispatch) =>{
-  axios.post('http://challenge-react.alkemy.org/', data)
+  axios.post('https://dr-todo-app.herokuapp.com/api/auth/login', data)
     .then(response => {
-      const {token} = response.data;
+      const token = response.data.data.token;
       localStorage.setItem("token",token);
       dispatch(login(token));
     })
